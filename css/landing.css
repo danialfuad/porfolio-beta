@@ -92,11 +92,11 @@ main {
 }
 
 #aksara-link {
-    background-image: url('../assets/Images/Aksara.jpg');
+    background-image: url('portfolio-beta/assets/Images/Aksara.jpg');
 }
 
 #citra-link {
-    background-image: url('../assets/Images/Citra.jpg');
+    background-image: url('portfolio-beta/assets/Images/Citra.jpg');
 }
 
 .grid-item:hover {
