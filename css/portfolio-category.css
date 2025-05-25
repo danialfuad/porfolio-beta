@@ -1,0 +1,258 @@
+/* css/portfolio-category.css */
+
+.portfolio-category-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+
+.portfolio-category-content {
+    background-color: #FFFFFF;
+    padding: 40px; /* Generous padding */
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    /* --- Height Constraint & Invisible Scrollbars --- */
+    /* Adjust '200px' based on your actual header/footer/container padding heights */
+    height: calc(100vh - 50px);
+    overflow: hidden; /* Prevent this box from showing scrollbars if columns manage their own */
+}
+
+.category-info-column {
+    flex: 1 1 38%; /* Adjusted proportions */
+    min-width: 280px;
+    box-sizing: border-box;
+    height: 100%; /* Fill parent's fixed height */
+    overflow-y: auto; /* Enable vertical scrolling if content is taller */
+    scrollbar-width: none; /* Firefox: Hide scrollbar */
+    padding-right: 10px; /* Space if scrollbar was visible, might not be needed now */
+}
+.category-info-column::-webkit-scrollbar {
+    display: none; /* WebKit: Hide scrollbar */
+}
+
+.category-info-column h1 {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 2.2em;
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+.category-info-column .category-intro {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: #555;
+}
+.category-info-column h2 {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1.5em; /* Adjusted */
+    color: #333;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eaeaea;
+    padding-bottom: 8px;
+}
+.category-info-column .service-item h3 {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1.15em; /* Adjusted */
+    color: #444;
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+.category-info-column .service-item p,
+.category-info-column .service-item ul {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: #555;
+    font-size: 0.9em; /* Slightly smaller for service details */
+    margin-bottom: 8px;
+}
+.category-info-column .service-item ul {
+    list-style: disc;
+    margin-left: 20px;
+    padding-left: 5px;
+}
+.category-info-column .service-item ul li {
+    margin-bottom: 4px;
+}
+
+.project-thumbnails-column {
+    flex: 1 1 58%; /* Adjusted proportions */
+    min-width: 300px;
+    box-sizing: border-box;
+    height: 100%; /* Fill parent's fixed height */
+    overflow-y: auto; /* Enable vertical scrolling if content is taller */
+    scrollbar-width: none; /* Firefox: Hide scrollbar */
+    padding-right: 10px;
+}
+.project-thumbnails-column::-webkit-scrollbar {
+    display: none; /* WebKit: Hide scrollbar */
+}
+
+.project-thumbnails-column h2 {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1.5em; /* Matched info column H2 */
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eaeaea;
+    padding-bottom: 8px;
+}
+
+.thumbnails-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; /* Adjusted gap */
+}
+
+.project-thumbnail {
+    flex: 1 1 calc(50% - 8px); /* 2 per row, accounting for gap */
+    min-width: 140px;
+    aspect-ratio: 4 / 3;
+    position: relative;
+    overflow: hidden;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: block;
+}
+.project-thumbnail:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+.project-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+.project-thumbnail:hover img {
+    transform: scale(1.05);
+}
+.project-thumbnail .thumbnail-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.65); /* Slightly more opaque */
+    color: white;
+    padding: 8px 10px; /* Adjusted padding */
+    font-size: 0.85em; /* Adjusted size */
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30%; /* Make overlay take bottom part of thumbnail */
+}
+.project-thumbnail:hover .thumbnail-overlay {
+    opacity: 1;
+}
+
+.category-bottom-nav {
+    width: 100%;
+    text-align: center;
+    padding-top: 25px;
+    margin-top: 30px;
+    border-top: 1px solid #eaeaea;
+    box-sizing: border-box;
+}
+.category-bottom-nav p {
+    margin-bottom: 10px;
+    font-size: 1em;
+    color: #555;
+}
+.category-bottom-nav .nav-link {
+    display: inline-block;
+    background-color: #333;
+    color: #FFFFFF;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 10px 20px; /* Adjusted padding */
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.category-bottom-nav .nav-link:hover,
+.category-bottom-nav .nav-link:focus {
+    background-color: #007bff;
+    transform: translateY(-2px);
+}
+
+/* Responsive for Portfolio Category Pages */
+@media (max-width: 768px) {
+    .portfolio-category-content {
+        flex-direction: column;
+        align-items: center;
+        height: auto; /* Allow natural height when stacked */
+        max-height: none;
+        overflow: visible;
+        padding: 25px;
+    }
+
+    .category-info-column,
+    .project-thumbnails-column {
+        flex-basis: auto;
+        width: 100%;
+        max-width: 580px; /* Consistent max-width for stacked columns */
+        height: auto;
+        overflow-y: visible;
+        padding-right: 0; /* Remove padding for invisible scrollbar */
+    }
+    .category-info-column::-webkit-scrollbar,
+    .project-thumbnails-column::-webkit-scrollbar {
+        display: auto; /* Or initial, let browser decide for mobile */
+    }
+     .category-info-column {
+        margin-bottom: 30px; /* Space between info and thumbnails when stacked */
+    }
+    .project-thumbnails-column h2,
+    .category-info-column h1,
+    .category-info-column h2 {
+        text-align: center;
+    }
+    .category-info-column .service-item ul {
+        margin-left: 0;
+        padding-left: 20px; /* Indent lists a bit from centered text */
+        text-align: left; /* Keep list items left aligned even if headings are centered */
+    }
+     .category-info-column .service-item p {
+        text-align: left;
+    }
+    .project-thumbnail {
+        flex: 1 1 calc(50% - 8px); /* Keep 2 per row on slightly smaller tablets if possible */
+    }
+}
+
+@media (max-width: 480px) {
+    .portfolio-category-container {
+        padding: 20px 15px;
+    }
+    .portfolio-category-content {
+        padding: 20px;
+        gap: 25px;
+    }
+    .category-info-column h1 { font-size: 1.8em; }
+    .category-info-column h2, .project-thumbnails-column h2 { font-size: 1.4em; }
+    .category-info-column .category-intro,
+    .category-info-column .service-item p,
+    .category-info-column .service-item ul { font-size: 0.85em; }
+
+    .project-thumbnail {
+        flex: 1 1 100%; /* Stack thumbnails 1 per row */
+        max-width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

@@ -1,0 +1,155 @@
+/* css/about.css */
+
+/*
+The <main> tag gets its light grey background (#E0E0E0) from global.css.
+The .about-me-container helps center .about-me-content if needed and adds padding.
+*/
+.about-me-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px; /* Vertical and horizontal padding */
+    box-sizing: border-box;
+}
+
+/* The main white content box */
+.about-me-content {
+    background-color: #FFFFFF;
+    padding: 30px 40px; /* Increased padding for better spacing */
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 900px;  /* Adjusted for a more focused content box */
+    width: 100%;       /* Takes full width up to max-width */
+    margin: 0 auto;    /* Ensures centering if parent isn't fully handling it */
+    
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.portrait-column {
+    flex: 1 1 280px; /* Slightly adjusted basis */
+    min-width: 220px;
+    box-sizing: border-box;
+    display: flex; /* To help center image if needed or for future additions */
+    justify-content: center;
+}
+
+.portrait-column img {
+    width: 100%;
+    max-width: 280px; /* Max width for the portrait image */
+    height: auto;
+    border-radius: 6px;
+    display: block;
+    object-fit: cover; /* If you want a fixed aspect ratio later */
+}
+
+.text-column {
+    flex: 2 1 60%;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+.text-column h2 {
+    margin-top: 0;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 2em;
+    color: #333333;
+    margin-bottom: 20px;
+}
+
+.text-column p {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.7;
+    color: #333333;
+    margin-bottom: 1.2em;
+}
+
+/* Social Contact Buttons Section */
+.social-contact-buttons {
+    width: 100%;
+    text-align: center;
+    padding-top: 25px; /* Adjusted */
+    margin-top: 25px;  /* Adjusted */
+    border-top: 1px solid #eaeaea; /* Lighter separator */
+    box-sizing: border-box;
+}
+
+.social-btn {
+    display: inline-flex; /* Using flex for better icon centering */
+    align-items: center;
+    justify-content: center;
+    margin: 0 8px; /* Slightly reduced margin */
+    width: 44px;  /* Button size */
+    height: 44px; /* Button size */
+    font-size: 20px; /* Icon size */
+    color: #fff;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: transform 0.3s ease, background-color 0.3s ease, opacity 0.3s ease;
+}
+
+.social-btn:hover {
+    transform: scale(1.1);
+    opacity: 0.85;
+}
+
+.social-btn.email { background-color: #777; }
+.social-btn.instagram { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%); }
+.social-btn.facebook { background-color: #1877F2; }
+.social-btn.linkedin { background-color: #0A66C2; }
+
+
+/* Responsive Adjustments for About Me Page */
+@media (max-width: 768px) {
+    .about-me-content {
+        flex-direction: column;
+        align-items: center;
+        padding: 25px;
+    }
+
+    .portrait-column,
+    .text-column {
+        flex-basis: auto;
+        width: 100%;
+        max-width: 500px; /* Max width for stacked content */
+    }
+
+    .portrait-column {
+        margin-bottom: 20px; /* Space between portrait and text when stacked */
+    }
+    .portrait-column img {
+        max-width: 250px; /* Adjust portrait size on mobile */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .text-column {
+        text-align: center; /* Center text when stacked */
+    }
+    .text-column h2 {
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-me-container {
+        padding: 30px 15px;
+    }
+    .about-me-content {
+        padding: 20px;
+    }
+    .text-column h2 {
+        font-size: 1.8em;
+    }
+    .portrait-column img {
+        max-width: 200px;
+    }
+    .social-btn {
+        margin: 0 5px;
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+}

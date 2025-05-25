@@ -1,0 +1,140 @@
+/* css/global.css */
+
+/* General Styles */
+html {
+    height: 100%;
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    min-height: 100vh; /* Use vh for full viewport height */
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-image: url('../assets/Images/background.jpg'); /* Path relative to css folder */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: #555555; /* Fallback if image doesn't load */
+    color: #333; /* Default text color for content on light backgrounds */
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit; /* Inherit color by default, can be overridden */
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #E0E0E0; /* Light grey header background */
+    border-bottom: 1px solid #CCCCCC;
+    flex-shrink: 0; /* Prevent header from shrinking */
+}
+
+header .logo img {
+    height: 50px;
+    width: auto;
+    vertical-align: middle; /* Better alignment for image within link */
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+header nav ul li {
+    margin: 0 15px; /* Adjusted margin for nav items */
+}
+
+/* Separator for navigation items (optional) */
+header nav ul li + li::before { /* Targets every li that is preceded by another li */
+    content: "|";
+    margin-right: 30px; /* Combined with li margin, gives 15px | 15px spacing */
+    color: #777777;
+    font-weight: normal;
+}
+
+
+header nav ul li a {
+    text-decoration: none;
+    color: #333333;
+    font-weight: bold;
+    font-size: 1em;
+    padding: 10px 0; /* Makes the clickable area a bit larger */
+}
+
+header nav ul li a.active {
+    color: #007bff; /* Active link color */
+    /* text-decoration: underline; */ /* Optional for active state */
+}
+
+/* Main Content Area Default Styling */
+main {
+    flex-grow: 1; /* Key for sticky footer: makes main area take available space */
+    display: flex;
+    flex-direction: column; /* Stack child sections vertically */
+    align-items: center;   /* Center child sections horizontally */
+    width: 100%;
+    background-color: transparent; /* Default light grey background for the main content band */
+                               /* Specific pages like landing page can override this to transparent */
+    box-sizing: border-box;
+    /* Padding on main can be tricky if child sections also have padding.
+       It's often better to apply vertical padding to the first/last child sections
+       or to a wrapper div within main if needed. For now, let global main have no padding. */
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 20px 20px; /* Adjusted padding */
+    border-top: 1px solid #444444;
+    color: #CCCCCC;
+    background-color: #555555; /* Match body background for consistency */
+    font-size: 0.9em;
+    flex-shrink: 0; /* Prevent footer from shrinking */
+}
+
+/* Basic Responsive Adjustments for Header (add more as needed) */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; /* Stack logo and nav on smaller screens */
+        padding: 15px 20px;
+    }
+
+    header .logo {
+        margin-bottom: 15px;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header nav ul li {
+        margin: 8px 0;
+    }
+
+    header nav ul li + li::before { /* Hide separators in stacked mobile nav */
+        display: none;
+    }
+
+    main {
+        /* Adjust padding for main on mobile if needed,
+           but often child containers handle this better */
+        /* padding: 20px 10px; */
+    }
+}

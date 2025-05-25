@@ -1,0 +1,98 @@
+/* Styles for About Me Page Content - ('02 About Me/css/style.css') */
+
+/* Style for the active navigation link in the header */
+header nav ul li a.active {
+    color: #007bff; /* Example active color - choose one that fits your design */
+    /* You could also add: font-weight: bold; or text-decoration: underline; */
+}
+
+/* Container that sits directly inside <main> */
+/* The <main> tag itself gets centering from the global style.css */
+.about-me-page-container {
+    width: 100%;
+    padding: 20px 0; /* Add some vertical padding if needed */
+    display: flex;          /* Added to help center content-wrapper if main doesn't fully */
+    justify-content: center;/* Added to help center content-wrapper */
+}
+
+/* Wrapper for the side-by-side content, controls max width and background */
+.about-me-content-wrapper {
+    background-color: #FFFFFF; /* White background for the content area */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 1100px;
+    width: 90%; /* Responsive width */
+    margin: 0 auto; /* Ensures centering if parent flex settings aren't enough */
+
+    display: flex;
+    flex-wrap: wrap; /* Allows columns to stack on smaller screens */
+    gap: 30px;       /* Space between portrait and text columns */
+    align-items: flex-start; /* Align columns to the top; use 'stretch' if you want equal height boxes */
+}
+
+/* Column for the portrait image */
+.portrait-column {
+    flex: 1 1 35%; /* Takes up roughly 35% of the space, adjust as needed */
+    /* min-width: 280px; */ /* Optional: ensure it doesn't get too squished */
+    box-sizing: border-box;
+}
+
+.portrait-column img {
+    width: 100%;      /* Image takes full width of its column */
+    height: auto;       /* Maintain aspect ratio */
+    border-radius: 6px; /* Optional: slightly rounded corners for the image */
+    display: block;     /* Removes extra space below image */
+}
+
+/* Column for the text content */
+.text-column {
+    flex: 1 1 60%; /* Takes up roughly 60% of the space, adjust as needed */
+    /* min-width: 300px; */ /* Optional */
+    box-sizing: border-box;
+    text-align: left; /* Ensures text within is left-aligned */
+}
+
+.text-column h2 {
+    margin-top: 0; /* Remove default top margin from h2 if it's the first element */
+    font-family: 'Source Sans Pro', sans-serif; /* Matches homepage style */
+    font-size: 2em; /* Or your desired size */
+    color: #333333;
+    margin-bottom: 20px;
+}
+
+.text-column p {
+    font-family: 'Roboto', sans-serif; /* Matches homepage style */
+    line-height: 1.7;
+    color: #333333;
+    margin-bottom: 1em;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .about-me-content-wrapper {
+        flex-direction: column; /* Stack portrait and text columns */
+        align-items: center;    /* Center stacked items */
+        gap: 25px;
+    }
+
+    .portrait-column,
+    .text-column {
+        flex-basis: auto;       /* Allow them to take full width when stacked */
+        width: 100%;
+        max-width: 550px;       /* Optional: constrain width when stacked for readability */
+    }
+
+    .text-column {
+        text-align: center; /* Optional: center text when stacked */
+    }
+
+    .text-column h2 {
+        text-align: center; /* Optional: center heading when stacked */
+    }
+
+    .portrait-column img {
+        max-width: 300px; /* Limit image size when stacked, or use a percentage */
+        margin: 0 auto;   /* Center image if it's smaller than its column */
+    }
+}

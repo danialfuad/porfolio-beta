@@ -1,0 +1,173 @@
+/* css/landing.css */
+
+/* Override main background for landing page to show body background image */
+main {
+    background-color: transparent;
+    /* If main had global padding you wanted to remove for this page: */
+    /* padding: 0; */
+}
+
+/* --- Intro Quote Styles --- */
+.intro-quote-section {
+    width: 100%;
+    max-width: 1500px; /* Align with content-grid or set as desired */
+    padding: 60px 20px 40px 20px; /* Adjusted padding */
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.intro-quote {
+    font-family: 'Georgia', serif;
+    font-size: 1.8em; /* Slightly larger */
+    font-style: italic;
+    color: #FFFFFF; /* White text to stand out on background image */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* Shadow for readability on image */
+    max-width: 1100px;
+    margin: 0 auto;
+    line-height: 1.6;
+    position: relative;
+    padding: 10px 0;
+}
+
+.intro-quote p {
+    margin-bottom: 0;
+}
+
+/* Optional decorative quotation marks - adjust color for visibility on background image */
+.intro-quote::before {
+    content: "\201C";
+    font-family: 'Georgia', serif;
+    font-size: 4em;
+    color: #007bff; /* Active link color */
+    position: absolute;
+    left: 0px;
+    top: 10px;
+    line-height: 1;
+    z-index: -1; /* May need to adjust if it interferes with text */
+}
+
+.intro-quote::after {
+    content: "\201D";
+    font-family: 'Georgia', serif;
+    font-size: 4em;
+    color: #007bff; /* Active link color */
+    position: absolute;
+    right: 15px;
+    bottom: -80px;
+    line-height: 1;
+    z-index: -1;
+}
+/* --- End of Intro Quote Styles --- */
+
+
+/* Grid for Aksara & Citra links */
+.content-grid {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    width: 95%;
+    max-width: 1600px;
+    margin: 0 auto 40px auto; /* Added bottom margin */
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.grid-item {
+    flex: 1 1 400px; /* Allow items to grow, but have a basis to wrap nicely */
+    min-width: 320px;
+    min-height: 65vh;
+    border: 10px solid rgba(255, 255, 255, 0.8); /* White frame with slight transparency */
+    background-color: #111111; /* Dark fallback color */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+#aksara-link {
+    background-image: url('../assets/Images/Aksara.jpg');
+}
+
+#citra-link {
+    background-image: url('../assets/Images/Citra.jpg');
+}
+
+.grid-item:hover {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25);
+    border-color: #FFFFFF; /* Solid white border on hover */
+}
+
+.grid-item .item-content {
+    padding: 20px; /* Added some padding */
+    width: auto;
+    max-width: 90%;
+    box-sizing: border-box;
+    text-align: center;
+    z-index: 2; /* Ensure text is above pseudo-elements if any were on .grid-item */
+    background-color: transparent; /* Optional: Subtle dark overlay behind text for readability */
+    border-radius: 5px; /* Optional */
+}
+
+.grid-item h2 {
+    color: #FFFFFF;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 2.2em;
+    font-weight: 700;
+    margin: 0 0 10px 0; /* Added bottom margin */
+    letter-spacing: 0.5px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+.grid-item p {
+    display: block;
+    color: #FFFFFF;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+    font-weight: normal; /* Changed from bold for better balance with H2 */
+    line-height: 1.5;
+    margin: 0;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+/* Responsive Adjustments for landing page specific elements */
+@media (max-width: 768px) {
+    .intro-quote {
+        font-size: 1.5em;
+    }
+    .intro-quote::before, .intro-quote::after {
+        font-size: 3em;
+        left: -10px; top: -15px; right: -10px; bottom: -20px; /* Adjust positions */
+    }
+    .grid-item {
+        min-height: 45vh; /* From global, can be adjusted if needed here */
+        flex-basis: 100%; /* Ensure they stack if not already by global responsive */
+    }
+    .content-grid {
+        width: 100%;
+        padding: 0 10px; /* Add padding to grid container on mobile */
+        box-sizing: border-box;
+    }
+}
+
+@media (max-width: 480px) {
+    .intro-quote {
+        font-size: 1.3em;
+    }
+    .intro-quote::before, .intro-quote::after {
+        font-size: 2.5em;
+    }
+    .grid-item h2 {
+        font-size: 1.8em; /* From global, can be adjusted */
+    }
+    .grid-item p {
+        font-size: 0.9em;
+    }
+}
